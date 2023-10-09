@@ -2,16 +2,24 @@ package atm_interface;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import com.toedter.calendar.JDateChooser;
 
-public class SignupOne extends JFrame {
+public class SignupOne extends JFrame implements ActionListener {
+
+    long randomNo;
+    JTextField nameTextField, fnameTextField, emailTextField, addressTextField, cityTextField, stateTextField, countryTextField, pincodeTextField;
+    JRadioButton male, female, others, married, unmarried;
+    JDateChooser dateChooser;
+    JButton next;
+
 
     SignupOne(){
         setLayout(null);
 
         Random ran = new Random();
-        long randomNo = (Math.abs(ran.nextLong() % 9000L + 1000L));
+        randomNo = (Math.abs(ran.nextLong() % 9000L + 1000L));
 
         JLabel formNo = new JLabel("Application Form No.  " + randomNo);
         formNo.setFont(new Font("Raleway", Font.BOLD, 38));
@@ -28,7 +36,7 @@ public class SignupOne extends JFrame {
         name.setBounds(100, 140, 200, 30);
         add(name);
 
-        JTextField nameTextField = new JTextField();
+        nameTextField = new JTextField();
         nameTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         nameTextField.setBounds(300, 140, 400, 30);
         add(nameTextField);
@@ -38,7 +46,7 @@ public class SignupOne extends JFrame {
         fName.setBounds(100, 190, 200, 30);
         add(fName);
 
-        JTextField fnameTextField = new JTextField();
+        fnameTextField = new JTextField();
         fnameTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         fnameTextField.setBounds(300, 190, 400, 30);
         add(fnameTextField);
@@ -48,7 +56,7 @@ public class SignupOne extends JFrame {
         dob.setBounds(100, 240, 200, 30);
         add(dob);
 
-        JDateChooser dateChooser = new JDateChooser();
+        dateChooser = new JDateChooser();
         dateChooser.setFont(new Font("Raleway", Font.BOLD, 14));
         dateChooser.setBounds(300, 240, 200, 30);
         add(dateChooser);
@@ -58,17 +66,17 @@ public class SignupOne extends JFrame {
         gender.setBounds(100, 290, 200, 30);
         add(gender);
 
-        JRadioButton male = new JRadioButton("Male");
+        male = new JRadioButton("Male");
         male.setBounds(300, 290, 100, 30);
         male.setBackground(Color.white);
         add(male);
 
-        JRadioButton female = new JRadioButton("Female");
+        female = new JRadioButton("Female");
         female.setBounds(400, 290, 100, 30);
         female.setBackground(Color.white);
         add(female);
 
-        JRadioButton others = new JRadioButton("Others");
+        others = new JRadioButton("Others");
         others.setBounds(500, 290, 100, 30);
         others.setBackground(Color.white);
         add(others);
@@ -83,7 +91,7 @@ public class SignupOne extends JFrame {
         email.setBounds(100, 340, 200, 30);
         add(email);
 
-        JTextField emailTextField = new JTextField();
+        emailTextField = new JTextField();
         emailTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         emailTextField.setBounds(300, 340, 400, 30);
         add(emailTextField);
@@ -93,12 +101,12 @@ public class SignupOne extends JFrame {
         marital.setBounds(100, 390, 200, 30);
         add(marital);
 
-        JRadioButton married = new JRadioButton("Married");
+        married = new JRadioButton("Married");
         married.setBounds(300, 390, 100, 30);
         married.setBackground(Color.white);
         add(married);
 
-        JRadioButton unmarried = new JRadioButton("Unmarried");
+        unmarried = new JRadioButton("Unmarried");
         unmarried.setBounds(400, 390, 100, 30);
         unmarried.setBackground(Color.white);
         add(unmarried);
@@ -112,7 +120,7 @@ public class SignupOne extends JFrame {
         address.setBounds(100, 440, 200, 30);
         add(address);
 
-        JTextField addressTextField = new JTextField();
+        addressTextField = new JTextField();
         addressTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         addressTextField.setBounds(300, 440, 400, 30);
         add(addressTextField);
@@ -122,7 +130,7 @@ public class SignupOne extends JFrame {
         city.setBounds(100, 490, 200, 30);
         add(city);
 
-        JTextField cityTextField = new JTextField();
+        cityTextField = new JTextField();
         cityTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         cityTextField.setBounds(300, 490, 400, 30);
         add(cityTextField);
@@ -132,7 +140,7 @@ public class SignupOne extends JFrame {
         state.setBounds(100, 540, 200, 30);
         add(state);
 
-        JTextField stateTextField = new JTextField();
+        stateTextField = new JTextField();
         stateTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         stateTextField.setBounds(300, 540, 400, 30);
         add(stateTextField);
@@ -142,7 +150,7 @@ public class SignupOne extends JFrame {
         country.setBounds(100, 590, 200, 30);
         add(country);
 
-        JTextField countryTextField = new JTextField();
+        countryTextField = new JTextField();
         countryTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         countryTextField.setBounds(300, 590, 400, 30);
         add(countryTextField);
@@ -152,16 +160,17 @@ public class SignupOne extends JFrame {
         pincode.setBounds(100, 640, 200, 30);
         add(pincode);
 
-        JTextField pincodeTextField = new JTextField();
+        pincodeTextField = new JTextField();
         pincodeTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         pincodeTextField.setBounds(300, 640, 400, 30);
         add(pincodeTextField);
 
-        JButton next = new JButton("Next");
+        next = new JButton("Next");
         next.setBackground(Color.black);
         next.setForeground(Color.white);
         next.setFont(new Font("Raleway", Font.BOLD, 14));
         next.setBounds(600, 700, 100, 30);
+        next.addActionListener(this);
         add(next);
 
         getContentPane().setBackground(Color.WHITE);
@@ -169,6 +178,53 @@ public class SignupOne extends JFrame {
         setSize(850, 800);
         setLocation(350, 10);
         setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    }
+    public void actionPerformed(ActionEvent e){
+        String formNo = ""+randomNo;
+        String name = nameTextField.getText();
+        String fname = fnameTextField.getText();
+        String dob = ((JTextField) dateChooser.getDateEditor().getUiComponent()).getText();
+        String gender = "null";
+        if(male.isSelected()){
+            gender = "Male";
+        }
+        else if (female.isSelected()) {
+            gender = "Female";
+        }
+        else if(others.isSelected()){
+            gender = "Others";
+        }
+        String email = emailTextField.getText();
+        String marital = "null";
+        if(married.isSelected()){
+            marital = "Married";
+        }
+        else if(unmarried.isSelected()){
+            marital = "Unmarried";
+        }
+        String address = addressTextField.getText();
+        String city = cityTextField.getText();
+        String state = stateTextField.getText();
+        String country = countryTextField.getText();
+        String pincode = pincodeTextField.getText();
+
+
+        try{
+            if(name.isEmpty() || fname.isEmpty() || dob.isEmpty() || gender.equals("null") || email.isEmpty() || address.isEmpty() || marital.equals("null") || city.isEmpty() || state.isEmpty() || country.isEmpty() || pincode.isEmpty()){
+                JOptionPane.showMessageDialog(null, "Please fill the required fields");
+            }
+            else{
+                DatabaseConnection c = new DatabaseConnection();
+                String query = "insert into signup values ('"+formNo+"', '"+name+"', '"+fname+"', '"+dob+"','"+gender+"', '"+email+"', '"+marital+"', '"+address+"', '"+city+"', '"+state+"', '"+country+"', '"+pincode+"')";
+                c.s.executeUpdate(query);
+            }
+        }
+        catch (Exception E){
+            System.out.println("An error occurred: " + E);
+        }
+
     }
 
     public static void main(String[] args) {

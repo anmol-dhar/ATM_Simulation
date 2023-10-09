@@ -85,6 +85,7 @@ public class Login extends JFrame implements ActionListener{
         setSize(800, 480);
         setLocation(350, 200);
         setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public void actionPerformed (ActionEvent e){
@@ -96,7 +97,8 @@ public class Login extends JFrame implements ActionListener{
             pinTextField.setText("");
         }
         else if(e.getSource() == signupButton){
-            
+            setVisible(false);
+            new SignupOne().setVisible(true);
         }
     }
     public static void main(String[] args) {
