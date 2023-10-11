@@ -16,7 +16,7 @@ public class SignupTwo extends JFrame implements ActionListener {
         this.FormNo = formNo;
         setLayout(null);
 
-        setTitle("New Account Application and Form - Page 2");
+        setTitle("New Account Application - Page 2");
 
         JLabel personalDetails = new JLabel("Page 2: Additional Details");
         personalDetails.setFont(new Font("Raleway", Font.BOLD, 22));
@@ -191,6 +191,9 @@ public class SignupTwo extends JFrame implements ActionListener {
                 DatabaseConnection c = new DatabaseConnection();
                 String query = "insert into signupTwo values ('"+FormNo+"', '"+Religion+"', '"+Category+"', '"+Salary+"','"+Education+"', '"+Occupation+"', '"+Pan+"', '"+Aadhaar+"', '"+Senior+"', '"+Existing+"')";
                 c.s.executeUpdate(query);
+
+                setVisible(false);
+                new SignupThree(FormNo).setVisible(true);
             }
         }
         catch (Exception E){

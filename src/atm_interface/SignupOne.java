@@ -18,6 +18,8 @@ public class SignupOne extends JFrame implements ActionListener {
     SignupOne(){
         setLayout(null);
 
+        setTitle("New Account Application - Page 1");
+
         Random ran = new Random();
         randomNo = (Math.abs(ran.nextLong() % 9000L + 1000L));
 
