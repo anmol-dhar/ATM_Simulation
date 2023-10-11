@@ -129,12 +129,12 @@ public class SignupTwo extends JFrame implements ActionListener {
         add(country);
 
         EYes = new JRadioButton("Yes");
-        EYes.setBounds(300, 590, 400, 30);
+        EYes.setBounds(300, 590, 100, 30);
         EYes.setBackground(Color.white);
         add(EYes);
 
         ENo = new JRadioButton("No");
-        ENo.setBounds(400, 590, 400, 30);
+        ENo.setBounds(400, 590, 100, 30);
         ENo.setBackground(Color.white);
         add(ENo);
 
@@ -177,10 +177,10 @@ public class SignupTwo extends JFrame implements ActionListener {
 
         String Existing = "null";
         if(EYes.isSelected()){
-            Existing = "Married";
+            Existing = "Yes";
         }
-        else if(EYes.isSelected()){
-            Existing = "Unmarried";
+        else if(ENo.isSelected()){
+            Existing = "No";
         }
 
         try{
