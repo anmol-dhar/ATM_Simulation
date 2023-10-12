@@ -20,7 +20,7 @@ public class SignupTwo extends JFrame implements ActionListener {
 
         JLabel personalDetails = new JLabel("Page 2: Additional Details");
         personalDetails.setFont(new Font("Raleway", Font.BOLD, 22));
-        personalDetails.setBounds(290, 80, 400, 30);
+        personalDetails.setBounds(290, 65, 400, 30);
         add(personalDetails);
 
         JLabel religion = new JLabel("Religion:");
@@ -52,7 +52,6 @@ public class SignupTwo extends JFrame implements ActionListener {
 
         String[] valsalary = {"null", "< 1,00,000", "< 2,00,000", "< 5,00,000", "Upto 1,00,000"};
         salaryDrop = new JComboBox(valsalary);
-        salaryDrop.setFont(new Font("Raleway", Font.BOLD, 14));
         salaryDrop.setBounds(300, 240, 200, 30);
         salaryDrop.setBackground(Color.white);
         add(salaryDrop);
@@ -90,7 +89,7 @@ public class SignupTwo extends JFrame implements ActionListener {
         add(pan);
 
         panTextField = new JTextField();
-        panTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+//        panTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         panTextField.setBounds(300, 440, 400, 30);
         add(panTextField);
 
