@@ -89,7 +89,7 @@ public class SignupTwo extends JFrame implements ActionListener {
         add(pan);
 
         panTextField = new JTextField();
-//        panTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        panTextField.setFont(new Font("Raleway", Font.BOLD, 14));
         panTextField.setBounds(300, 440, 400, 30);
         add(panTextField);
 
