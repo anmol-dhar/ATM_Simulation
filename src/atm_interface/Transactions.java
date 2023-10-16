@@ -73,10 +73,12 @@ public class Transactions extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == cashDeposit){
-
+            setVisible(false);
+            new Deposit(pinNumber).setVisible(true);
         }
         else if(e.getSource() == cashWithdrawal){
-
+            setVisible(false);
+            new Withdrawal(pinNumber).setVisible(true);
         }
         else if(e.getSource() == fastCash){
 
