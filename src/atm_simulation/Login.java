@@ -1,4 +1,4 @@
-package atm_interface;
+package atm_simulation;
 
 import javax.swing.*;
 import java.awt.*;

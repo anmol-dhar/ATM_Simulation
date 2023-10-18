@@ -1,4 +1,4 @@
-package atm_interface;
+package atm_simulation;
 
 import java.sql.*;
 public class DatabaseConnection {
