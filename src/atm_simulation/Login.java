@@ -105,8 +105,8 @@ public class Login extends JFrame implements ActionListener{
                     JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin");
                 }
             }
-            catch (Exception Ex){
-                System.out.println("An error occurred: " + Ex);
+            catch (Exception ex){
+                System.out.println("An error occurred: " + ex);
             }
         }
         else if(e.getSource() == clearButton){
