@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.util.Date;
 
 public class Withdrawal extends JFrame implements ActionListener{
@@ -42,8 +43,6 @@ public class Withdrawal extends JFrame implements ActionListener{
         backButton.addActionListener(this);
         image.add(backButton);
 
-
-
         setSize(900, 900);
         setLocation(300, 0);
         setUndecorated(true);
@@ -56,12 +55,30 @@ public class Withdrawal extends JFrame implements ActionListener{
         if(e.getSource() == withdrawButton){
             String amount = amountWithdraw.getText();
             Date date = new Date();
+            DatabaseConnection c = new DatabaseConnection();
+            try {
+                ResultSet rs = c.s.executeQuery("select * from bank where pin = '" + pinNumber + "'");
+                int balance = 0;
+                while (rs.next()) {
+                    if (rs.getString("type").equals("Credit")) {
+                        balance += Integer.parseInt(rs.getString("amount"));
+                    } else {
+                        balance -= Integer.parseInt(rs.getString("amount"));
+                    }
+                }
+                if (balance < Integer.parseInt(amount)) {
+                    JOptionPane.showMessageDialog(null, "Insufficient Balance");
+                    return;
+                }
+            }
+            catch (Exception ex){
+                System.out.println("An error occurred: " + ex);
+            }
             if(amount.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the amount you want to withdraw");
             }
             else{
                 try {
-                    DatabaseConnection c = new DatabaseConnection();
                     String query = "insert into bank values('"+pinNumber+"', '"+date+"', 'Debit', '"+amount+"')";
                     c.s.executeUpdate(query);
                     JOptionPane.showMessageDialog(null, "Rs "+amount+" Withdrawal successfully \n Please collect your cash");
