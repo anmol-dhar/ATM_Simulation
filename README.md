@@ -18,18 +18,27 @@ This Java Swing, AWT and MySQL-based ATM Simulation Project is designed to provi
 - Run the application and log in with your Card number and PIN.
 - Perform ATM operations, including balance inquiries, withdrawals, deposits, and PIN Change.
 - View transaction history to track your recent transactions.
+
+
 ## Run Locally
+
+- Download and Install JDK 21 and add the Environment Variables Path.
+
+&ensp;&ensp;&ensp;&ensp;[Click Here](https://www.oracle.com/in/java/technologies/downloads/)
+
+- Download JDBC Connector and JCalendar.
+
+&ensp;&ensp;&ensp;&ensp;[Click Here](https://drive.google.com/drive/folders/1f8bX-xJnemvlPhoy7j2jQuFyKgqaWZGb?usp=sharing)
+
+
+- Download and Install MySQL Workbench.
+
+&ensp;&ensp;&ensp;&ensp;[Click Here](https://dev.mysql.com/downloads/)
 
 - Clone the project.
 
 ```bash
   git clone https://github.com/anmol-dhar/ATM_Simulation.git
-```
-
-- Download and Install MySQL Workbench.
-
-```bash
-https://dev.mysql.com/downloads/
 ```
 
 - Create a Database.
@@ -59,7 +68,7 @@ https://dev.mysql.com/downloads/
 - Create Thrid Table for Signup 3 Details.
 
 ```bash
-create table signupThree(Form_No varchar(20), Account_Type varchar(20), Card_Number varchar(20) , Pin varchar(20), Services varchar(20));
+create table signupThree(Form_No varchar(20), Account_Type varchar(20), Card_Number varchar(20) , Pin varchar(20), Services varchar(100));
 ```
 
 - Create Fourth Table for Login Details.
@@ -76,10 +85,16 @@ create table bank(Pin varchar(20), date varchar(50), type varchar(20), amount va
 
 - Change the username and password inside the `DatabaseConnection` class.
 
+- Add JDBC Connector and JCalendar files in the Project. `Project Structure => Libraries`
+
 - Compile and run the `Login.java` file to start the ATM simulator.
+
+
 ## Contributors
 
 - [Anmol Dhar](https://github.com/anmol-dhar)
+
+
 ## License
 
 This project is open-source and available under the [MIT](https://github.com/anmol-dhar/ATM_Simulation/blob/main/LICENSE) License.
