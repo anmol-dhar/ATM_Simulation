@@ -12,14 +12,6 @@ This Java Swing, AWT and MySQL-based ATM Simulation Project is designed to provi
 - Transaction history for tracking previous transactions.
 - Secure communication with MySQL database for data storage.
 
-## Usage
-
-- Sign up for the application to obtain your Card number and PIN.
-- Run the application and log in with your Card number and PIN.
-- Perform ATM operations, including balance inquiries, withdrawals, deposits, and PIN Change.
-- View transaction history to track your recent transactions.
-
-
 ## Run Locally
 
 - Download and Install JDK 21 and add the Environment Variables Path.
@@ -89,6 +81,12 @@ create table bank(Pin varchar(20), date varchar(50), type varchar(20), amount va
 
 - Compile and run the `Login.java` file to start the ATM simulator.
 
+## Usage
+
+- Sign up for the application to obtain your Card number and PIN.
+- Run the application and log in with your Card number and PIN.
+- Perform ATM operations, including balance inquiries, withdrawals, deposits, and PIN Change.
+- View transaction history to track your recent transactions.
 
 ## Contributors
 
